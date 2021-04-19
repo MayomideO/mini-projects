@@ -1,0 +1,28 @@
+import random
+
+num = 0
+correct = 0
+user_in = input("This a coin flip guessing game, please guess either Heads or Tails: ").lower()
+
+while user_in != "done":
+    outcome = random.choice([1, 2])
+    if (user_in == "heads" or user_in == "h") and outcome == 1:
+        print("You have chosen heads")
+        print("The outcome is heads! Congratulations")
+        correct += 1
+    elif (user_in == "tails" or user_in == "t") and outcome == 2:
+        print("You have chosen tails")
+        print("The outcome is tails! Congratulations")
+        correct += 1
+    elif (user_in == "heads" or user_in == "h") and outcome == 2:
+        print("You have chosen heads")
+        print("The outcome is tails! Sorry.")
+    elif (user_in == "tails" or user_in == "t") and outcome == 1:
+        print("You have chosen tails")
+        print("The outcome is heads! Sorry.")
+    else:
+        print("Invalid guess")
+    num += 1
+    user_in = input("Would you like to try again? If so, guess heads or tails. If not, type 'done' to exit: ").lower()
+print("The game has ended. You guessed " + str(num) + " times")
+print("You were right " + str(correct) + " out of " + str(num) + " times.")
